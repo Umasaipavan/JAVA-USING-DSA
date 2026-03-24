@@ -1,0 +1,38 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if (nums.length == 0) return 0;
+
+        int i = 0;
+
+        for (int j = 1; j < nums.length; j++) 
+        {
+            if (nums[j] != nums[i]) 
+            {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+
+        return i + 1; 
+    }
+}
+
+
+
+if (nums.length == 0) return 0;
+→ If array is empty, no elements → return 0
+int i = 0;
+→ i tracks the last unique element index
+for (int j = 1; j < nums.length; j++)
+→ j scans the array from left to right
+if (nums[j] != nums[i])
+→ Check if current element is different (unique)
+i++;
+→ Move pointer to next position for placing unique element
+nums[i] = nums[j];
+→ Place the new unique element at correct position
+Duplicates case
+→ If same, do nothing (skip)
+return i + 1;
+→ Return total unique elements (index + 1)
+
